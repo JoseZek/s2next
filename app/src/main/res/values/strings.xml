@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">S2Next</string>
+    <string name="title_activity_pricipal">pricipal</string>
+    <string name="title_activity_principal">Principal</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_activity_alta__usuario">Alta_Usuario</string>
+    <string name="title_activity_registrar_pago">Registrar_pago</string>
+    <string name="title_activity_resumen__pago">Resumen_Pago</string>
+</resources>

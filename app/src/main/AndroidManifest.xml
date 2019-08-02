@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.rueda.s2next">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".editar_usuario.Editar_Usuario">
+        </activity>
+        <activity
+                android:name=".resumen_pago.Resumen_Pago"
+                android:label="@string/title_activity_resumen__pago"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".registrar_pago.Registrar_pago"
+                android:label="@string/title_activity_registrar_pago"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".alta_usuario.Alta_Usuario"
+                android:label="@string/title_activity_alta__usuario"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".inicio.Inicio"
+                android:label="@string/title_activity_inicio"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

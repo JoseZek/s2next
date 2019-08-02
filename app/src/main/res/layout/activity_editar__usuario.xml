@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".editar_usuario.Editar_Usuario">
+
+
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <EditText
+                    android:layout_margin="@dimen/fab_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="Name"
+                    android:textSize="20dp"
+                    android:id="@+id/editText"
+            />
+
+            <EditText
+                    android:layout_margin="@dimen/fab_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="Segundo nombre (Opcional)"
+                    android:id="@+id/editText3"
+                    android:textSize="20dp"
+            />
+
+            <EditText
+                    android:layout_margin="@dimen/fab_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="Apellido Paterno"
+                    android:id="@+id/editText2"
+                    android:textSize="20dp"
+            />
+
+
+            <EditText
+                    android:layout_margin="@dimen/fab_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="Apellido Materno"
+                    android:id="@+id/editText4"
+            />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/fab_margin">
+
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:enabled="true"
+                        android:hint="Fecha de nacimiento"
+                        android:textSize="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/fecha_nacimiento"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_feha_nacimiento"
+                        android:layout_weight="3"
+                        android:text="Calendario"
+                        android:textSize="15dp"
+                />
+
+            </LinearLayout>
+
+
+            <Button
+                    android:layout_marginTop="40dp"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Editar"
+                    android:layout_gravity="center"
+                    android:textSize="40dp"
+            />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
