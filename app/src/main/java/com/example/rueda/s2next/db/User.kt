@@ -1,16 +1,25 @@
 package com.example.rueda.s2next.db
 
-class user{
+class user {
 
     var id: Int = 0
     var name: String = ""
     var middle_name: String = ""
-    var last_name : String = ""
-    var second_name : String = ""
+    var last_name: String = ""
+    var second_name: String = ""
     var birthdate: String = ""
     var gender: Int = 1 // 1 hombre y 2 mujer
+    var pago: Int = 0
+    var num_pago: Int = 0
 
-    constructor(name2: String,middle_name : String,last_name : String,second_name : String,birthdate : String,gender : Int){
+    constructor(
+        name2: String,
+        middle_name: String,
+        last_name: String,
+        second_name: String,
+        birthdate: String,
+        gender: Int
+    ) {
 
         this.name = name2
         this.middle_name = middle_name
@@ -20,7 +29,8 @@ class user{
         this.gender = gender
 
     }
-    constructor(){
+
+    constructor() {
 
     }
 }

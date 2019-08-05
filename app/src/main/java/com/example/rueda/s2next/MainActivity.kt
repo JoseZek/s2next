@@ -10,28 +10,27 @@ import com.example.rueda.s2next.inicio.Inicio
 class MainActivity : AppCompatActivity() {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var firstLayout: Boolean = true
-        if(firstLayout){
-            val splash = object : Thread(){
-                override fun run(){
+        if (firstLayout) {
+            val splash = object : Thread() {
+                override fun run() {
                     try {
-                        Thread.sleep(3000)
+                        Thread.sleep(2000)
                         val intent = Intent(applicationContext, Inicio::class.java)
                         startActivity(intent)
                         finish()
-                    }catch (e: Exception) {
+                    } catch (e: Exception) {
                         e.printStackTrace()
                     }
                 }
             }
             splash.start()
-           firstLayout = false
+            firstLayout = false
 
-        }else{
+        } else {
             //Agregar if para saber si manda a alta si es que no hay registros o al Inicio
             val intent = Intent(this, Alta_Usuario::class.java)
             startActivity(intent)

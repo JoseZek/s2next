@@ -8,7 +8,6 @@
         tools:context=".editar_usuario.Editar_Usuario">
 
 
-
     <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
 
         <LinearLayout
@@ -70,7 +69,7 @@
                         android:hint="Fecha de nacimiento"
                         android:textSize="20dp"
                         android:layout_weight="1"
-                        android:id="@+id/et_fecha_nacimiento"/>
+                        android:id="@+id/et_fecha"/>
                 <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

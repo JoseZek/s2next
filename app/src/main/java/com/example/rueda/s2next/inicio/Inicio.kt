@@ -23,10 +23,6 @@ import kotlinx.android.synthetic.main.content_inicio.*
 
 class Inicio : AppCompatActivity(), View.OnClickListener, View.OnLongClickListener {
 
-
-    var id_btn_uno: Int = 1
-    var id_btn_dos: Int = 2
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
@@ -38,6 +34,7 @@ class Inicio : AppCompatActivity(), View.OnClickListener, View.OnLongClickListen
         var db = DataBaseHandler(this)
         create_user(db)
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
@@ -47,8 +44,15 @@ class Inicio : AppCompatActivity(), View.OnClickListener, View.OnLongClickListen
     // actions on click menu items
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.Alta -> {
-            val intent = Intent(applicationContext,Alta_Usuario::class.java)
+            val intent = Intent(applicationContext, Alta_Usuario::class.java)
             startActivity(intent)
+            finish()
+            true
+        }
+        R.id.Resumen -> {
+            val intent = Intent(applicationContext, Resumen_Pago::class.java)
+            startActivity(intent)
+            finish()
             true
         }
         else -> {
@@ -56,56 +60,40 @@ class Inicio : AppCompatActivity(), View.OnClickListener, View.OnLongClickListen
         }
     }
 
-    fun color_fondo(i: Int):Int{
-        if(i%2 == 0){
-            return Color.parseColor("#FCFCFC")
-        }else{
-            return Color.parseColor("#247db8")
-        }
-    }
-    fun color_fuente(i: Int):Int{
-        if(i%2 == 0){
-            return Color.parseColor("#247db8")
-        }else{
-            return Color.parseColor("#ffffff")
-        }
-    }
+    fun color_fondo(i: Int) = if (i % 2 == 0) Color.parseColor("#FCFCFC") else Color.parseColor("#247db8")
+    fun color_fuente(i: Int) = if (i % 2 == 0) Color.parseColor("#247db8") else Color.parseColor("#ffffff")
+
     override fun onLongClick(p0: View?): Boolean {
         //Toast.makeText(this,"El id es ${p0?.id.toString()}",Toast.LENGTH_LONG).show()
-        val intent = Intent(applicationContext,Editar_Usuario::class.java)
-        intent.putExtra("id_put",p0?.id)
+        val intent = Intent(applicationContext, Editar_Usuario::class.java)
+        intent.putExtra("id_put", p0?.id)
         startActivity(intent)
         finish()
         return true
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
+
     override fun onClick(p0: View?) {
-
-        val id_buton: Int = p0?.id!!
-        if(id_buton%2  == 0){
-           // Toast.makeText(this,"El id es ${p0?.id.toString()}",Toast.LENGTH_LONG).show()
-            val intent = Intent(applicationContext, Registrar_pago::class.java)
-            startActivity(intent)
-        }else if(id_buton%2  == 1){
-            //Toast.makeText(this,"El id es ${p0?.id.toString()}",Toast.LENGTH_LONG).show()
-            val intent = Intent(applicationContext, Resumen_Pago::class.java)
-            startActivity(intent)
-        }
-
-        if(id_buton == -1){
+        if (p0?.id!! == -1) {
             val intent = Intent(applicationContext, Alta_Usuario::class.java)
             startActivity(intent)
+        } else {
+            //Toast.makeText(this,"El id es ${p0?.id}", Toast.LENGTH_LONG).show()
+            val intent = Intent(applicationContext, Registrar_pago::class.java)
+            intent.putExtra("id_put", p0?.id)
+            startActivity(intent)
         }
-
         finish()
     }
-    fun create_user (db:DataBaseHandler){
+
+    fun create_user(db: DataBaseHandler) {
         var data = db.readData()
 
-        if(data.size == 0){
+        if (data.size == 0) {
 
             val tv_dynamic = TextView(this)
             tv_dynamic.layoutParams = LinearLayout.LayoutParams(
@@ -140,7 +128,7 @@ class Inicio : AppCompatActivity(), View.OnClickListener, View.OnLongClickListen
             // add TextView to LinearLayout
             contenedor.addView(btn2_dynamic)
 
-        }else {
+        } else {
 
             for (i in 0..(data.size - 1)) {
 
@@ -166,7 +154,11 @@ class Inicio : AppCompatActivity(), View.OnClickListener, View.OnLongClickListen
                 )
                 tv_dynamic.gravity = Gravity.CENTER
                 tv_dynamic.textSize = 15f
-                tv_dynamic.append(data.get(i).name + " "  +data.get(i).middle_name + " " + data.get(i).last_name + " " + data.get(i).second_name)
+                tv_dynamic.append(
+                    data.get(i).name + " " + data.get(i).middle_name + " " + data.get(i).last_name + " " + data.get(
+                        i
+                    ).second_name
+                )
                 tv_dynamic.id = data.get(i).id!!
                 tv_dynamic.setOnLongClickListener(this)
                 tv_dynamic.setTextColor(color_fuente(i))
@@ -185,35 +177,13 @@ class Inicio : AppCompatActivity(), View.OnClickListener, View.OnLongClickListen
                 )
                 btn1_dynamic.textAlignment = LinearLayout.TEXT_ALIGNMENT_CENTER
                 btn1_dynamic.textSize = 10f
-                btn1_dynamic.text = "Resumen Pago"
+                btn1_dynamic.text = "Registro Pago"
                 btn1_dynamic.setOnClickListener(this)
                 // btn1_dynamic.setTextColor(color_fuente(i))
-                btn1_dynamic.id = id_btn_uno
-                id_btn_uno += 2
+                btn1_dynamic.id = data.get(i).id!!
                 btn1_dynamic.layoutParams.apply { (this as LinearLayout.LayoutParams).weight = 2f }
-
                 // add TextView to LinearLayout
                 linear_layout.addView(btn1_dynamic)
-
-                //Se crean los botones 2
-                val btn2_dynamic = Button(this)
-                btn2_dynamic.layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.MATCH_PARENT
-                )
-                btn2_dynamic.textAlignment = LinearLayout.TEXT_ALIGNMENT_CENTER
-                btn2_dynamic.textSize = 8f
-                btn2_dynamic.text = "Registrar pago"
-                btn2_dynamic.setOnClickListener(this)
-
-                //btn2_dynamic.setTextColor(color_fuente(i))
-                btn2_dynamic.id = id_btn_dos
-                id_btn_dos += 2
-                btn2_dynamic.layoutParams.apply { (this as LinearLayout.LayoutParams).weight = 2f }
-
-                // add TextView to LinearLayout
-                linear_layout.addView(btn2_dynamic)
-
             }
         }
     }
