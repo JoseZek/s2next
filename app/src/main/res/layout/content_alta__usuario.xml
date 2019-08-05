@@ -5,7 +5,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_alta__usuario"
         tools:context=".alta_usuario.Alta_Usuario" tools:layout_editor_absoluteY="56dp">
@@ -25,7 +24,7 @@
                     android:inputType="textPersonName"
                     android:hint="Name"
                     android:textSize="20dp"
-                    android:id="@+id/editText"
+                    android:id="@+id/nombre"
             />
 
             <EditText
@@ -34,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Segundo nombre (Opcional)"
-                    android:id="@+id/editText3"
+                    android:id="@+id/segundo_nombre"
                     android:textSize="20dp"
             />
 
@@ -44,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Apellido Paterno"
-                    android:id="@+id/editText2"
+                    android:id="@+id/ap_p"
                     android:textSize="20dp"
             />
 
@@ -55,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Apellido Materno"
-                    android:id="@+id/editText4"
+                    android:id="@+id/ap_m"
             />
 
             <LinearLayout
@@ -68,7 +67,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:enabled="true"
+                        android:enabled="false"
                         android:hint="Fecha de nacimiento"
                         android:textSize="20dp"
                         android:layout_weight="1"
@@ -90,7 +89,7 @@
                     android:layout_margin="@dimen/fab_margin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/switch1"
+                    android:id="@+id/genero"
                     android:layout_gravity="center"
                     android:textSize="25dp"
             />
@@ -100,9 +99,10 @@
                     android:layout_margin="@dimen/fab_margin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Continuar"
+                    android:text="Guardar"
                     android:layout_gravity="center"
                     android:textSize="15dp"
+                    android:id="@+id/btn_save"
             />
 
 

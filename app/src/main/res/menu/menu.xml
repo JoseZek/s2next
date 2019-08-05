@@ -5,9 +5,4 @@
             android:id="@+id/Alta"
             android:title="Alta"
             />
-    <item
-        android:id="@+id/Editar"
-        android:title="Editar" />
-
-
 </menu>

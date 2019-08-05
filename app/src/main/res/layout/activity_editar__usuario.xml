@@ -23,7 +23,7 @@
                     android:inputType="textPersonName"
                     android:hint="Name"
                     android:textSize="20dp"
-                    android:id="@+id/editText"
+                    android:id="@+id/et_nombre"
             />
 
             <EditText
@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Segundo nombre (Opcional)"
-                    android:id="@+id/editText3"
+                    android:id="@+id/et_segundo_nombre"
                     android:textSize="20dp"
             />
 
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Apellido Paterno"
-                    android:id="@+id/editText2"
+                    android:id="@+id/et_ap_p"
                     android:textSize="20dp"
             />
 
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Apellido Materno"
-                    android:id="@+id/editText4"
+                    android:id="@+id/et_ap_m"
             />
 
             <LinearLayout
@@ -66,11 +66,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:enabled="true"
+                        android:enabled="false"
                         android:hint="Fecha de nacimiento"
                         android:textSize="20dp"
                         android:layout_weight="1"
-                        android:id="@+id/fecha_nacimiento"/>
+                        android:id="@+id/et_fecha_nacimiento"/>
                 <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -88,9 +88,10 @@
                     android:layout_margin="@dimen/fab_margin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Editar"
+                    android:text="Guardar Cambios"
                     android:layout_gravity="center"
-                    android:textSize="40dp"
+                    android:textSize="30dp"
+                    android:id="@+id/editar"
             />
 
 
